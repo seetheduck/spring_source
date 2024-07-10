@@ -3,6 +3,7 @@ package pack.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,11 +16,12 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "mem")		// DB의 특정 테이블과 매핑
+@Entity
+@Table(name = "mem")	// DB의 특정 테이블과 매핑
 public class MemDto {	// 카멜 케이스로 작성하면 자동으로 언더스코어 네이밍 컨벤션을 따름
 	@Id
 	@Column(name="num")
-	private int number;
+	private int num;
 	@Column(name="name", nullable = true)	// nullable = false 는 not null
 	private String name;
 	

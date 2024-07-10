@@ -17,11 +17,12 @@ public class BusinessImpl implements BusinessInter {
 	public void dataPrint() {
 		List<MemDto> mlist = dataInterface.selectDataAll();
 		
-		System.out.println("------------------------");
+		System.out.println("dataprint에서 출력-----------------");
 		
 		for(MemDto m:mlist) {
-			System.out.println(m.getNumber() + " " + m.getName() + " " + m.getAddr());
+			System.out.println(m.getNum() + " " + m.getName() + " " + m.getAddr());
 		}
+		
 		
 	}
 
