@@ -18,6 +18,12 @@ public class DataProcess {
 		return list;
 	}
 	
+	// 해당 자료 읽기 : 수정, 삭제에서 사용
+	public Mem getData(String num) {
+		Mem mem = repository.findByNum(num);
+		return mem;
+	}
+	
 	// 추가
 	public String insert(Membean bean){
 		// 자동 증가
@@ -45,7 +51,29 @@ public class DataProcess {
 	}
 	
 	// 수정
+	public String update(Membean bean){
+		try {
+			Mem mem = new Mem();
+			mem.setNum(bean.getNum());
+			mem.setName(bean.getName());
+			mem.setAddr(bean.getAddr());
+			mem = repository.save(mem);
+			return "success";
+		} catch (Exception e) {
+			return "수정 오류 : " + e.getMessage();
+		}
+		
+	}
 	
 	// 삭제
+	public String delete(int num){
+		try {
+			repository.deleteById(num);
+			return "success";
+		} catch (Exception e) {
+			return "삭제 오류 : " + e.getMessage();
+		}
+		
+	}
 	
 }
