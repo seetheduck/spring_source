@@ -31,7 +31,6 @@ public class Emp {
 	private Date hiredate;
 	private Double sal;
 	private Double comm;
-	//private Integer deptno;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "deptno", foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT)) // ConstraintMode.NO_CONSTRAINT 외래키 제약조건 비활성화
